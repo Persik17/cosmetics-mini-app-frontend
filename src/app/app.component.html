@@ -1,0 +1,59 @@
+<div class="container">
+  <header class="app-header">
+    <h1 class="desktop-only" *ngIf="!isModalOpen">Cosmetics List</h1>
+    <h1 class="mobile-only" *ngIf="isModalOpen">Add New Cosmetic</h1>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Modal -->
+  <div class="modal" *ngIf="isModalOpen">
+    <div class="modal-content">
+      <span class="close-button" (click)="closeModal()">&times;</span>
+      <h2>Add New Cosmetic</h2>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="cosmeticName">
+
+      <label for="opening-date">Opening Date:</label>
+      <input type="date" id="opening-date" name="opening-date" [(ngModel)]="cosmeticOpeningDate">
+
+      <label for="expiration-date">Expiration Date:</label>
+      <input type="date" id="expiration-date" name="expiration-date" [(ngModel)]="cosmeticExpirationDate">
+
+      <button (click)="addCosmetic()">Add</button>
+    </div>
+  </div>
+
+  <div class="cosmetics-list-container" *ngIf="!isModalOpen">
+    <button class="add-cosmetic-button" (click)="openModal()">Add Cosmetic</button>
+    <ul class="cosmetics-list">
+      <li *ngFor="let cosmetic of cosmetics">
+        Name: {{ cosmetic.name }}, Opening Date: {{ cosmetic.openingDate | date:'yyyy-MM-dd' }}, Expiration Date:
+        {{ cosmetic.expirationDate | date:'yyyy-MM-dd' }}
+      </li>
+    </ul>
+
+    <div class="calendar-container">
+      <h3 class="calendar-title">Expiration Dates Calendar</h3>
+      <div class="calendar">
+        <div class="month">
+          <button class="prev-month" (click)="changeMonth(-1)">&#10094;</button>
+          {{ currentMonth | date:'MMMM yyyy' }}
+          <button class="next-month" (click)="changeMonth(1)">&#10095;</button>
+        </div>
+        <div class="days">
+          <div *ngFor="let day of days" class="day" [class.expired]="day.isExpired" [class.has-expiration]="day.hasExpiration">
+            <span class="day-number">{{ day.day }}</span>
+          </div>ы
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
