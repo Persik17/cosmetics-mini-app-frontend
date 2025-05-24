@@ -42,6 +42,12 @@ const BottomNavigation = ({ activeTab, setActiveTab }) => {
         </IconButton>
         <Typography variant="caption" color={activeTab === 'news' ? 'primary' : 'default'}>News</Typography>
       </NavItem>
+      <NavItem onClick={() => setActiveTab('profile')}>
+        <IconButton color={activeTab === 'profile' ? 'primary' : 'default'}>
+          <AccountCircle /> {/* Profile Icon */}
+        </IconButton>
+        <Typography variant="caption" color={activeTab === 'profile' ? 'primary' : 'default'}>Profile</Typography>
+      </NavItem>
       <NavItem onClick={() => setActiveTab('calendar')}>
         <IconButton color={activeTab === 'calendar' ? 'primary' : 'default'}>
           <CalendarMonth />
@@ -53,12 +59,6 @@ const BottomNavigation = ({ activeTab, setActiveTab }) => {
           <SettingsIcon /> {/* Use renamed SettingsIcon */}
         </IconButton>
         <Typography variant="caption" color={activeTab === 'settings' ? 'primary' : 'default'}>Settings</Typography>
-      </NavItem>
-      <NavItem onClick={() => setActiveTab('profile')}>
-        <IconButton color={activeTab === 'profile' ? 'primary' : 'default'}>
-          <AccountCircle /> {/* Profile Icon */}
-        </IconButton>
-        <Typography variant="caption" color={activeTab === 'profile' ? 'primary' : 'default'}>Profile</Typography>
       </NavItem>
       <NavItem onClick={() => setActiveTab('about')}>
         <IconButton color={activeTab === 'about' ? 'primary' : 'default'}>
