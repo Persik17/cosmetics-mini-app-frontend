@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif; /* Add a nice font */
+}
+
+h1 {
+  color: #e91e63; /* Pink heading */
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  border: 1px solid #f48fb1; /* Lighter pink border */
+  padding: 10px;
+  background-color: #fce4ec; /* Very light pink background */
+}
+
+/* Styling for the calendar grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-day {
+  text-align: center;
+  border: 1px solid #eee;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.calendar-day:hover {
+  background-color: #f8bbd0; /* Light pink on hover */
+}
+
+.selected-date {
+  background-color: #e91e63; /* Pink background for selected date */
+  color: white;
+}
+
+.different-month {
+  color: #ccc; /* Grayed out for days from different months */
+}
+
+/* Styling for the dialog */
+.dialog-title {
+  background-color: #e91e63; /* Pink background for dialog title */
+  color: white;
+}
+
+.dialog-content {
+  padding: 20px;
+}
